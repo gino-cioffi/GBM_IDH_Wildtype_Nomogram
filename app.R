@@ -9,7 +9,7 @@ df.o <- read.xlsx("nomo_points_5_8_update.xlsx", sheet = "Outcomes")
 
 age.values <- subset(df.p, (Variable =="Age at Diagnosis"))
 
-# Define UI for application that draws a histogram
+
 ui <- fixedPage(
   fixedRow(
     img(src='220th_sm_b7880MkexsCq.png', align = "left"),
