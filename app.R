@@ -4,11 +4,18 @@ library(shinyWidgets)
 library(data.table)
 library(openxlsx)
 
-df.p <- read.xlsx("nomo_points_5_8_update.xlsx", sheet = "Predictors")
+df.p <- read.xlsx("nomo_points_5_8_update.xlsx", sheet = "Predictors") 
+## This sheet contains 3 columns - Variable, Value, Points
+# Variable - List of variables in predictive model, occurs for every level of "Value"
+# Value - Associated levels for the "Variable" that the user can select
+# Points - The nomogram points associated with the "Value" selected
+
 df.o <- read.xlsx("nomo_points_5_8_update.xlsx", sheet = "Outcomes")
+## This sheet contains 4 columns - Total Points, Predicted 12-Month Survival Probability:, Predicted 18-Month Survival Probability:,Predicted 24-Month Survival Probability:
+# Total Points - Total point values associated with the sum of the "Value" points from the first sheet
+# The remaining 3 variables provide the survival probabilities for the associated "Total Points" value
 
 age.values <- subset(df.p, (Variable =="Age at Diagnosis"))
-
 
 ui <- fixedPage(
   fixedRow(
